@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Oleo+Script&family=Raleway:wght@600&family=Rubik:wght@300;400;500&display=swap");
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/*---------------------------------------------Headings & subtitles*/
+
+h1 {
+  font-family: "Oleo Script", cursive;
+  font-weight: 400;
+  color: #f295bf;
+  font-size: 2.5em;
+}
+
+h2 {
+  font-family: "Oleo Script", cursive;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+h3 {
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+h4 {
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+  font-size: 0.9em;
+  color: #fff;
+}
+
+.header-row {
+  padding: 40px 30px 10px 40px;
+}
+
+.subtitle {
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: #575656;
+}
