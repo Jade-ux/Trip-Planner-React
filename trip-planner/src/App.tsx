@@ -4,11 +4,11 @@ import './App.css';
 import NewTrip from './components/map-form/NewTrip';
 
 function App() {
-  return (
-    <div>
-      <NewTrip />
-    </div>
-  );
+    return (
+        <div>
+            <NewTrip />
+        </div>
+    );
 }
 
 export default App;

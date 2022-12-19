@@ -14,14 +14,16 @@ const NewTrip = () => {
     const onSaveTripData = (enteredTripData: TripData) => {
         const tripData = {
             ...enteredTripData,
-            id: Math.random().toString()
+            id: Math.random().toString(),
         };
-        console.log(tripData)
+        console.log(tripData);
     };
 
-    return <div className="new-trip">
-        <MapForm onSaveTripDataObj={onSaveTripData} />
-    </div>
+    return (
+        <div className="new-trip">
+            <MapForm onSaveTripDataObj={onSaveTripData} />
+        </div>
+    );
 };
 
 export default NewTrip;
