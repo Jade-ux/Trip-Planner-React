@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MapForm from './MapForm';
+import MapForm from '../MapForm/MapForm';
 // import './NewTrip.css';
 
 interface TripData {

@@ -3,8 +3,17 @@ import React, { useState, ChangeEvent } from "react";
 import "./MapForm.css";
 
 export interface Props {
-    event: object;
+    onSaveTripDataObj: object;
   }
+
+  
+// interface TripData {
+//     country: string;
+//     city: string;
+//     fromDate: string;
+//     toDate: string;
+// }
+
 
 const MapForm: React.FC<Props> = props => {
     const [enteredCountry, setEnteredCountry] = useState("");
@@ -12,25 +21,25 @@ const MapForm: React.FC<Props> = props => {
     const [enteredFromDate, setEnteredFromDate] = useState("");
     const [enteredToDate, setEnteredToDate] = useState("");
 
-    const countryChangeHandler = (event: ChangeEvent) => {
+    const countryChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         const target = event.target as HTMLInputElement
         setEnteredCountry(target.value);
     };
 
-    const cityChangeHandler = (event: ChangeEvent) => {
+    const cityChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (event: ChangeEvent) => {
         const target = event.target as HTMLInputElement
         setEnteredCity(target.value);
     };
 
-    const datesChangeHandler = (event: ChangeEvent) => {
+    const datesChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         const target = event.target as HTMLInputElement
         setEnteredFromDate(target.value);
         setEnteredToDate(target.value);
     };
 
-    const submitHandler = (event: any) => {
+    const submitHandler: React.FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault();
-
+    };
     const mapData = {
         country: enteredCountry,
         city: enteredCity,
@@ -80,7 +89,6 @@ const MapForm: React.FC<Props> = props => {
         </div>
     </form>
     );
-};
 };
 
 export default MapForm;
