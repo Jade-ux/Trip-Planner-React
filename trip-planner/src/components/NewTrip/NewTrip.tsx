@@ -1,7 +1,7 @@
 import React from 'react';
 
 import MapForm from '../MapForm/MapForm';
-// import './NewTrip.css';
+import './NewTrip.css';
 
 interface TripData {
     country: string;
@@ -17,6 +17,7 @@ const NewTrip = () => {
             id: Math.random().toString()
         };
         console.log(tripData)
+        
     };
 
     return <div className="new-trip">
