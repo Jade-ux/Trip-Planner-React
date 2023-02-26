@@ -2,14 +2,23 @@ import TripItem from '../TripItem/TripItem';
 import Card from '../UI/Card';
 import './Trips.css';
 
+export interface Trip {
+  id: string,
+  country: string,
+  city: string,
+  date: DateConstructor,
+}
+
 const Trips = (props: any) => {
   return (
     <Card className="trips">
-      <TripItem
-        country={props.items[0].country}
-        city={props.items[0].city}
-        date={props.items[0].date}
-      />
+      {props.items.map((trip: Trip) => (
+        <TripItem
+          country={trip.country}
+          city={trip.city}
+          date={trip.date}
+        />
+      ))}
     </Card>
   );
 }

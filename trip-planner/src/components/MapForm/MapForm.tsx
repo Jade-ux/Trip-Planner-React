@@ -1,26 +1,15 @@
 import React, { useState, ChangeEvent } from "react";
-// import { DateRangePicker } from 'react-date-range';
 
 import "./MapForm.css";
 
 export interface Props {
-    onSaveTripDataObj: object;
+    onSaveTripData: Function;
   }
 
-  
-// interface TripData {
-//     country: string;
-//     city: string;
-//     fromDate: string;
-//     toDate: string;
-// }
-
-
-const MapForm: React.FC<Props> = props => {
+const MapForm: React.FC<Props> = (props: Props) => {
     const [enteredCountry, setEnteredCountry] = useState("");
     const [enteredCity, setEnteredCity] = useState("");
-    const [enteredFromDate, setEnteredFromDate] = useState("");
-    const [enteredToDate, setEnteredToDate] = useState("");
+    const [enteredDate, setEnteredDate] = useState("");
     const minDate = new Date().toLocaleDateString('en-ca');
 
     const countryChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -33,37 +22,25 @@ const MapForm: React.FC<Props> = props => {
         setEnteredCity(target.value);
     };
 
-    const fromDateChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    const dateChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         const target = event.target as HTMLInputElement
-        setEnteredFromDate(target.value);
+        setEnteredDate(target.value);
     };
 
-    const toDateChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        const target = event.target as HTMLInputElement
-        setEnteredToDate(target.value);
-    };
-
-    // const selectionRange = {
-    //     startDate: new Date(),
-    //     endDate: new Date(),
-    //     key: 'selection',
-    // }
-
-    const submitHandler: React.FormEventHandler<HTMLFormElement> = (event) => {
+    const submitHandler = (event: any) => {
         event.preventDefault();
   
         const mapData = {
             country: enteredCountry,
             city: enteredCity,
-            fromDate: new Date(enteredFromDate),
-            toDate: new Date(enteredToDate),
+            date: new Date(enteredDate),
         };
 
+        props.onSaveTripData(mapData)
         console.log(mapData);
         setEnteredCountry("");
         setEnteredCity("");
-        setEnteredFromDate("");
-        setEnteredToDate("");
+        setEnteredDate("");
     };
 
     return (
@@ -87,22 +64,12 @@ const MapForm: React.FC<Props> = props => {
             </div>
             <div className="new-trip__control">
             <label>Dates</label>
-            {/* <DateRangePicker 
-                ranges={[selectionRange]}
-            /> */}
             <input
                 type="date"
                 min={minDate}
                 max="2050-01-12"
-                value={enteredFromDate}
-                onChange={fromDateChangeHandler}
-            />
-            <input
-                type="date"
-                min={minDate}
-                max="2050-01-12"
-                value={enteredToDate}
-                onChange={toDateChangeHandler}
+                value={enteredDate}
+                onChange={dateChangeHandler}
             />
             </div>
         </div>
