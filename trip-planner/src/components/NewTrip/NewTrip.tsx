@@ -1,29 +1,32 @@
 import React from 'react';
 
 import MapForm from '../MapForm/MapForm';
-// import './NewTrip.css';
+import './NewTrip.css';
 
 interface TripData {
     country: string;
     city: string;
-    fromDate: string;
-    toDate: string;
+    date: string;
 }
 
-const NewTrip = () => {
+export interface Props {
+    onAddTrip: Function
+  }
+
+const NewTrip: React.FC<Props> = (props: Props) => {
     const onSaveTripData = (enteredTripData: TripData) => {
         const tripData = {
             ...enteredTripData,
             id: Math.random().toString(),
         };
-        console.log(tripData);
+
+        props.onAddTrip(tripData)
+        
     };
 
-    return (
-        <div className="new-trip">
-            <MapForm onSaveTripDataObj={onSaveTripData} />
-        </div>
-    );
+    return <div className="new-trip">
+        <MapForm onSaveTripData={onSaveTripData} />
+    </div>
 };
 
 export default NewTrip;
