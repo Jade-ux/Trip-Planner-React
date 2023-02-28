@@ -54,26 +54,8 @@ const MapForm: React.FC<Props> = (props: Props) => {
                     <label>City</label>
                     <input type="text" value={enteredCity} onChange={cityChangeHandler} />
                 </div>
-                <div className="new-trip__control">
-                    <label>Dates</label>
-                    <input
-                        type="date"
-                        min="2022-01-10"
-                        max="2024-01-12"
-                        value={enteredFromDate}
-                        onChange={datesChangeHandler}
-                    />
-                    <input
-                        type="date"
-                        min="2022-01-10"
-                        max="2024-01-12"
-                        value={enteredToDate}
-                        onChange={datesChangeHandler}
-                    />
-                </div>
-            </div>
             <div className="new-trip__control">
-            <label>Dates</label>
+            <label>Date</label>
             <input
                 type="date"
                 min={minDate}
@@ -81,6 +63,10 @@ const MapForm: React.FC<Props> = (props: Props) => {
                 value={enteredDate}
                 onChange={dateChangeHandler}
             />
+            </div>
+            <div className="new-trip__actions">
+            <button type="submit">Add trip</button>
+        </div>
             </div>
         </form>
     );
