@@ -17,8 +17,9 @@ const NewTrip: React.FC<Props> = (props: Props) => {
     const onSaveTripData = (enteredTripData: TripData) => {
         const tripData = {
             ...enteredTripData,
-            id: Math.random().toString()
+            id: Math.random().toString(),
         };
+
         props.onAddTrip(tripData)
         
     };
